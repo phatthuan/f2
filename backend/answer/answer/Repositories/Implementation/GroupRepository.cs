@@ -17,5 +17,10 @@ namespace answer.Repositories.Implementation
         {
             return await dbContext.Groups.ToListAsync();
         }
+
+        public async Task<Group?> GetByIdAsync(int id)
+        {
+            return await dbContext.Groups.FirstOrDefaultAsync(x => x.GroupID == id);
+        }
     }
 }
